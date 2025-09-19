@@ -19,8 +19,6 @@ setup(
     author_email="aryanpatial31@example.com",
     description="End-to-end ML pipeline for customer lifetime value prediction.",
     packages=find_packages(where="src"),     # include everything inside src/
-    package_dir={"": "src"},                 # src is the root of importable code
-    python_requires=">=3.7",
     install_requires= get_requirements('requirements.txt'), # external packages as dependencies
     classifiers=[
         "Programming Language :: Python :: 3",
