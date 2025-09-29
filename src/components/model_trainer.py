@@ -6,7 +6,7 @@ from typing import Tuple, List
 import numpy as np
 import xgboost as xgb
 from sklearn.model_selection import KFold
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.metrics import mean_absolute_error, root_mean_squared_error, r2_score
 
 from src.logger import logging
 from src.exception_handling import CustomException
@@ -67,7 +67,7 @@ class ModelTrainer:
                 metrics = {
                     "fold": fold,
                     "MAE":  round(mean_absolute_error(y[val], preds), 2),
-                    "RMSE": round(mean_squared_error(y[val], preds, squared=False), 2),
+                    "RMSE": round(root_mean_squared_error(y[val], preds, squared=False), 2),
                     "R2":   round(r2_score(y[val], preds), 4),
                 }
                 logging.info(f"Fold {fold}: {metrics}")
